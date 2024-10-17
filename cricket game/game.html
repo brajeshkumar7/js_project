@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>game</title>
+    <style>
+        body {
+            text-align: center;
+        }
+    </style>
+    <link rel="stylesheet" href="game.css">
+</head>
+
+<body>
+    <h1>Bat Ball Stump Game</h1>
+    <button class="button" onclick="
+    let computerchoice=computerChoiceGenerator();
+    let finalresult=resultShow('bat' ,computerchoice);
+    displayResult('bat',computerchoice,finalresult);
+    "><img class="image" src="images/1-1-2-virat-kohli-grand-edition-tennis-cricket-bat-short-handle-original-imag55zexgqmtznz.webp" alt="this is bat"></button>
+    <button  class="button" onclick=" 
+    computerchoice=computerChoiceGenerator();
+    finalresult=resultShow('ball' ,computerchoice);
+    displayResult('ball',computerchoice,finalresult);
+    "><img class="image" src="images/images.jpg" alt="this is ball"></button>
+    <button  class="button" onclick="
+    computerchoice=computerChoiceGenerator();
+    finalresult=resultShow('stump' ,computerchoice);
+    displayResult('stump',computerchoice,finalresult);"><img class="image" src="images/cricket-stump.jpg" alt="this is the stump"></button>
+    <h3 id="first"></h3>
+    <h3 id="second"></h3>
+    <h3 id="third"></h3>
+    <h3 id="fourth"></h3>
+    <button onclick="localStorage.clear();
+    resetScore();">Reset</button>
+    <script>
+        let score;
+        let scoreStr=localStorage.getItem('Score');
+        //this function call is for retrieving score after reloading and we use here ternary oprerator insteaad of the gaurd and default operator to make retriaving score possible
+        resetScore(scoreStr);
+        //can use default or guard operator instead of this
+        function resetScore(scoreStr){
+            score=scoreStr?JSON.parse(scoreStr):
+            {
+             won: 0,
+             lost: 0,
+             tie: 0,
+            };
+        
+            score.display= function () {
+                return `Matches:  won:${score.won}, lost:${score.lost} and tie:${score.tie}`;
+            };
+            displayResult();
+        }
+        function computerChoiceGenerator() {
+            let random = Math.random() * 3;
+            if (random >= 0 && random <= 1) {
+                return 'bat';
+
+            }
+            else if (random > 1 && random <= 2) {
+                return 'ball';
+            }
+            else {
+                return 'stump';
+            }
+        }
+        function resultShow(userchoice, compchoice) {
+            let result;
+            if (userchoice === 'bat') {
+                if (compchoice === 'bat') {
+                    result = 'its a tie';
+                    score.tie++;
+                }
+                else if (compchoice === 'ball') {
+                    result = 'you win';
+                    score.won++;
+                }
+                else {
+                    result = 'computer win';
+                    score.lost++;
+                }
+            }
+            else if (userchoice === 'ball') {
+                if (compchoice === 'ball') {
+                    result = 'its a tie';
+                    score.tie++;
+                }
+                else if (compchoice === 'stump') {
+                    result = 'you win';
+                    score.won++;
+                }
+                else {
+                    result = 'computer win';
+                    score.lost++;
+                }
+            }
+            else {
+                if (compchoice === 'stump') {
+                    result = 'its a tie';
+                    score.tie++;
+                }
+                else if (compchoice === 'bat') {
+                    result = 'you win';
+                    score.won++;
+                }
+                else {
+                    result = 'computer win';
+                    score.lost++;
+                }
+            }
+            return result;
+        }
+        function displayResult(x, y, z) {
+            localStorage.setItem('Score' , JSON.stringify(score));
+            document.querySelector('#first').innerText=x!==undefined?`you chose ${x}`:'';
+            document.querySelector('#second').innerText=y!==undefined?`computer chose ${y}`:'';
+            document.querySelector('#third').innerText=z!==undefined?`and ${z}`:'';
+            document.querySelector('#fourth').innerText=score.display();
+        }
+      
+   </script>
+</body>
+
+</html>

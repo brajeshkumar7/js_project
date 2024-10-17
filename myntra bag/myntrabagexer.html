@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Myntra Bag Exercise</title>
+    <link rel="stylesheet" href="bag.css">
+</head>
+
+<body>
+    <button class="click" onclick="cartquantity++;
+    document.querySelector('#heading').innerText=`Your Bag has ${cartquantity} items`;">Add to Bag</button>
+    <button id="secondbutton" onclick="cartquantity--;
+    document.querySelector('#heading').innerText=`Your Bag has ${cartquantity} items`;">Add to wishlist</button>
+    <button class="click" onclick="cartquantity+=2;
+    document.querySelector('#heading').innerText=`Your Bag has ${cartquantity} items`;">Add 1+1 sale item</button>
+    <h1 id="heading"></h1>
+    <script>
+        let cartquantity = 0;
+        //we can also comment below line if we dont want to show the status of thr cart initially
+        document.querySelector('#heading').innerText = `Your Bag has ${cartquantity} items`;
+    </script>
+</body>
+
+</html>

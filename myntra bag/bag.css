@@ -1,0 +1,13 @@
+.click{
+    padding:5px 10px;
+    border:none;
+    background-color: rgb(138, 228, 138);
+    border-radius: 10px;
+
+}
+#secondbutton{
+    padding:5px 20px;
+    border:2px solid black;
+    border-radius: 10px;
+    
+}

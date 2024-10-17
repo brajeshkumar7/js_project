@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator project</title>
+    <link rel="stylesheet" href="calci.css">
+</head>
+
+<body>
+    <div id="cal">
+        <input type="text" id="display" readonly>
+        <div id="button_container">
+            <button class="button" onclick="mystring='';
+            document.querySelector('#display').value=mystring;">C</button>
+            <button class="button" onclick="mystring=mystring+'1';
+            document.querySelector('#display').value=mystring;">1</button>
+            <button class="button" onclick="mystring=mystring+'2';
+            document.querySelector('#display').value=mystring;">2</button>
+            <button class="button" onclick="mystring=mystring+'+';
+            document.querySelector('#display').value=mystring;">+</button>
+            <button class="button" onclick="mystring=mystring+'3';
+            document.querySelector('#display').value=mystring;">3</button>
+            <button class="button" onclick="mystring=mystring+'4';
+            document.querySelector('#display').value=mystring;">4</button>
+            <button class="button" onclick="mystring=mystring+'-';
+            document.querySelector('#display').value=mystring;">-</button>
+            <button class="button" onclick="mystring=mystring+'5';
+            document.querySelector('#display').value=mystring;">5</button>
+            <button class="button" onclick="mystring=mystring+'6';
+            document.querySelector('#display').value=mystring;">6</button>
+            <button class="button" onclick="mystring=mystring+'*';
+            document.querySelector('#display').value=mystring;">*</button>
+            <button class="button" onclick="mystring=mystring+'7';
+            document.querySelector('#display').value=mystring;">7</button>
+            <button class="button" onclick="mystring=mystring+'8';
+            document.querySelector('#display').value=mystring;">8</button>
+            <button class="button" onclick="mystring=mystring+'/';
+            document.querySelector('#display').value=mystring;">/</button>
+            <button class="button" onclick="let answer=eval(mystring);
+            document.querySelector('#display').value=answer">=</button>
+            <button class="button" onclick="mystring=mystring+'9';
+            document.querySelector('#display').value=mystring;">9</button>
+            <button class="button" onclick="mystring=mystring+'0';
+            document.querySelector('#display').value=mystring;">0</button>
+            <button class="button" onclick="mystring=mystring+'.';
+            document.querySelector('#display').value=mystring;">.</button>
+            <button class="button" onclick="let strlen=mystring.length;
+            mystring=mystring.replace( mystring[strlen-1],'');
+            document.querySelector('#display').value=mystring;">X</button>
+        </div>
+    </div>
+    <script>
+        let mystring = '';
+        document.querySelector('#display').value = mystring;
+    </script>
+</body>
+
+</html>

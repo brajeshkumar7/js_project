@@ -1,0 +1,12 @@
+.image{
+   
+    width: 100px; 
+    padding: 0px;
+    margin: 0px;
+    border-radius: 50px;
+}
+.button{
+    padding: 0px;
+    border: none;
+    border-radius: 50px;
+}
